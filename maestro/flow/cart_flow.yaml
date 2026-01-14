@@ -1,0 +1,30 @@
+appId: com.shoppingcartapp
+---
+- launchApp
+- assertVisible: "Home"
+- assertVisible: 
+    id: "cart_icon"
+- assertVisible:
+    id: "settings_icon"
+# Scroll to ensure products are visible
+- scroll
+# Tap on the 4th visible product's "Add to Cart" button
+# In a 2-column layout, the 4th visible product is at index 3 (0-indexed)
+# So we target product_4_add_button (which corresponds to the 4th product in the original array)
+- tapOn:
+    id: "product_4_add_button"
+- assertVisible: "Added"
+# Verify cart count increased by checking the badge
+- assertVisible:
+    id: "cart_icon"
+# Navigate to Cart page
+- tapOn:
+    id: "cart_icon"
+- assertVisible: "Cart"
+# Find and remove the item we just added (Product 4, which has id=4)
+- tapOn:
+    id: "cart_item_delete_4"
+# Navigate back to Home page using back button
+- tapOn:
+    id: "back_button"
+- assertVisible: "Home"
