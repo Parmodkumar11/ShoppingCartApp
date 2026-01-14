@@ -5,6 +5,7 @@ import {
   FlatList,
   TouchableOpacity,
   StyleSheet,
+  Image,
 } from 'react-native';
 import {useApp} from '../context/AppContext';
 import Header from '../components/Header';
@@ -33,7 +34,11 @@ const CartScreen: React.FC<CartScreenProps> = ({navigation}) => {
         style={[styles.deleteButton, isRTL && styles.deleteButtonRTL]}
         testID={`cart_item_delete_${item.id}`}
         accessibilityLabel={`Delete ${item.name} from cart`}>
-        <Text style={styles.deleteIcon} testID={`cart_item_delete_icon_${item.id}`}>🗑️</Text>
+        <Image
+          source={require('../utils/bin.png')}
+          style={styles.deleteIcon}
+          testID={`cart_item_delete_icon_${item.id}`}
+        />
       </TouchableOpacity>
     </View>
   );
@@ -113,7 +118,9 @@ const styles = StyleSheet.create({
     marginRight: 12,
   },
   deleteIcon: {
-    fontSize: 24,
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
   },
   emptyContainer: {
     flex: 1,

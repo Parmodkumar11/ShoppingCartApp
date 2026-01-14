@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useApp} from '../context/AppContext';
 
@@ -28,7 +28,10 @@ const Header: React.FC<HeaderProps> = ({
               onPress={onCartPress}
               style={styles.iconButton}
               testID="back_button">
-              <Text style={styles.backIcon}>←</Text>
+              <Image
+                source={require('../utils/arrow.png')}
+                style={styles.backIcon}
+              />
             </TouchableOpacity>
           )}
         </View>
@@ -106,8 +109,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   backIcon: {
-    fontSize: 24,
-    fontWeight: 'bold',
+    width: 24,
+    height: 24,
+    resizeMode: 'contain',
   },
   badge: {
     position: 'absolute',

@@ -81,13 +81,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f8f8f8',
   },
   listContent: {
     padding: 8,
   },
   row: {
     justifyContent: 'space-between',
+    flex: 1,
   },
 });
 
